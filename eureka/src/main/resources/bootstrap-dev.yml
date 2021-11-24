@@ -1,0 +1,27 @@
+server:
+  port: 8761
+
+eureka:
+  client:
+    serviceUrl: #服务注册中心的配置内容，指定服务注册中心的位置
+      defaultZone: http://localhost:${server.port}/eureka/
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

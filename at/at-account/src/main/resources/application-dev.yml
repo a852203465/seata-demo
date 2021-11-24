@@ -1,0 +1,9 @@
+spring:
+
+  # mysql 配置
+  datasource:
+    url: jdbc:mysql://localhost:3306/at-account?useUnicode=true&characterEncoding=UTF-8&useSSL=false
+    username: root
+    password: 123456
+
+

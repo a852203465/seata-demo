@@ -1,0 +1,44 @@
+spring:
+  application:
+    name: eureka-server
+
+  profiles:
+    active: dev
+
+eureka:
+
+  client:
+    # 是否从注册中心服务注册信息
+    fetch-registry: false
+    #是否将自己注册到注册中心
+    register-with-eureka: false
+  instance:
+    prefer-ip-address: true # 显示ip地址
+    instance-id: ${com.xdcplus.spring.cloud.client.ip-address}:${server.port}
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: "*"
+      cors:
+        allowed-origins: "*"
+        allowed-methods: "*"
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

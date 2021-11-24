@@ -1,0 +1,125 @@
+spring:
+
+  profiles:
+    active: dev
+
+  sql:
+    init:
+      encoding: UTF-8
+      mode: always
+
+  jpa:
+    hibernate:
+      ddl-auto: update
+    database: mysql
+
+  # mysql 配置
+  datasource:
+    # 数据源/连接池类型
+    type: com.alibaba.druid.pool.DruidDataSource
+    # 数据库驱动名称
+    driver-class-name: com.mysql.jdbc.Driver
+
+    druid:
+      # 定义初始连接数
+      initialSize: 1
+      # 定义最小空闲 minIdle=1
+      minIdle: 3
+      # 定义最大连接数
+      maxActive: 100
+      # 配置获取连接等待超时的时间
+      maxWait: 60000
+      # 配置间隔多久才进行一次检测，检测需要关闭的空闲连接，单位是毫秒
+      timeBetweenEvictionRunsMillis: 60000
+      # 配置一个连接在池中最小生存的时间，单位是毫秒
+      minEvictableIdleTimeMillis: 30000
+      # 验证使用的SQL语句
+      validationQuery: select 'x'
+      # 指明连接是否被空闲连接回收器(如果有)进行检验.如果检测失败,则连接将被从池中去除.
+      testWhileIdle: true
+      # 借出连接时不要测试，否则很影响性能
+      testOnBorrow: false
+      # 归还连接时执行validationQuery检测连接是否有效，做了这个配置会降低性能
+      testOnReturn: false
+      # 打开PSCache，并且指定每个连接上PSCache的大小
+      poolPreparedStatements: true
+      # 指定每个连接上PSCache的大小
+      maxPoolPreparedStatementPerConnectionSize: 20
+      # 配置监控统计拦截的filters，去掉后监控界面sql无法统计，'wall'用于防火墙
+      filters: stat,wall,slf4j
+      # 通过connectProperties属性来打开mergeSql功能；慢SQL记录
+      connectionProperties: druid.stat.mergeSql=true;druid.stat.slowSqlMillis=5000
+      db-type: mysql
+
+seata:
+  tx-service-group: seata_at
+  application-id: ${spring.application.name}
+  registry:
+    type: eureka
+    eureka:
+      service-url: http://localhost:8761/eureka
+      application: seata_tx_server
+      weight: 1
+
+  service:
+    vgroup-mapping:
+      seata_at: seata_tx_server
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

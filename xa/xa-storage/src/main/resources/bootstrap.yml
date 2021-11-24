@@ -1,0 +1,27 @@
+spring:
+  application:
+    name: storage-service
+
+  profiles:
+    active: dev
+
+eureka:
+  instance:
+    prefer-ip-address: true # 显示ip地址
+    instance-id: ${spring.cloud.client.ip-address}:${server.port}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
